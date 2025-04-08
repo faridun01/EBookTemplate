@@ -1,0 +1,165 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <title>@ViewData["Title"] - BookSaw</title>
+
+    <!-- Bootstrap (from CDN) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+    <!-- Template Styles -->
+    <link rel="stylesheet" href="~/css/normalize.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/icomoon/icomoon.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/vendor.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/style.css" asp-append-version="true" />
+
+    <!-- Site & ASP.NET Styles -->
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/UsingTemplete.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header id="header">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+
+                <!-- Logo -->
+                <div class="col-md-2">
+                    <div class="menu-item py-2">
+                        <a asp-controller="Home" asp-action="Index" class="fs-2 fw-bold text-primary">
+                            eBook
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Navigation Menu -->
+                <div class="col-md-10">
+                    <nav id="navbar">
+                        <div class="main-menu stellarnav d-flex justify-content-end align-items-center">
+                            <ul class="menu-list list-unstyled d-flex mb-0">
+                                <li class="menu-item me-4">
+                                    <a class="nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Index" ? "active" : "")"
+                                       asp-controller="Home" asp-action="Index">Home</a>
+                                </li>
+                                <li class="menu-item me-4">
+                                    <a class="nav-link" asp-controller="Home" asp-action="Index" asp-fragment="featured-books">Featured</a>
+                                </li>
+                                <li class="menu-item me-4">
+                                    <a class="nav-link" asp-controller="Home" asp-action="Index" asp-fragment="popular-books_index">Popular</a>
+                                </li>
+                                <li class="menu-item me-4">
+                                    <a class="nav-link" asp-controller="Home" asp-action="Index" asp-fragment="special-offer">Offer</a>
+                                </li>
+                                <li class="menu-item me-4">
+                                    <a class="nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Books" ? "active" : "")"
+                                       asp-controller="Home" asp-action="Books">Books</a>
+                                </li>
+                            </ul>
+
+                            <!-- Hamburger for mobile -->
+                            <div class="hamburger d-md-none ms-3">
+                                <span class="bar"></span>
+                                <span class="bar"></span>
+                                <span class="bar"></span>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer id="footer" class="bg-light mt-5 pt-5 border-top">
+        <div class="container">
+            <div class="row gy-4">
+
+                <div class="col-md-4">
+                    <div class="footer-item">
+                        <div class="company-brand">
+                            <img src="~/images/main-logo.png" alt="logo" class="footer-logo mb-3" style="max-height: 50px;">
+                            <p class="text-muted small">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sagittis sed ptibus libero lectus non. Amet sed lorem posuere sit iaculis amet, ac urna.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="footer-menu">
+                        <h6 class="fw-bold text-dark">About Us</h6>
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="text-muted text-decoration-none">Vision</a></li>
+                            <li><a href="#" class="text-muted text-decoration-none">Articles</a></li>
+                            <li><a href="#" class="text-muted text-decoration-none">Careers</a></li>
+                            <li><a href="#" class="text-muted text-decoration-none">Service Terms</a></li>
+                            <li><a href="#" class="text-muted text-decoration-none">Donate</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="footer-menu">
+                        <h6 class="fw-bold text-dark">Discover</h6>
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="text-muted text-decoration-none">Home</a></li>
+                            <li><a href="#" class="text-muted text-decoration-none">Books</a></li>
+                            <li><a href="#" class="text-muted text-decoration-none">Authors</a></li>
+                            <li><a href="#" class="text-muted text-decoration-none">Subjects</a></li>
+                            <li><a href="#" class="text-muted text-decoration-none">Advanced Search</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="footer-menu">
+                        <h6 class="fw-bold text-dark">My Account</h6>
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="text-muted text-decoration-none">Sign In</a></li>
+                            <li><a href="#" class="text-muted text-decoration-none">View Cart</a></li>
+                            <li><a href="#" class="text-muted text-decoration-none">Wishlist</a></li>
+                            <li><a href="#" class="text-muted text-decoration-none">Track My Order</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="footer-menu">
+                        <h6 class="fw-bold text-dark">Help</h6>
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="text-muted text-decoration-none">Help Center</a></li>
+                            <li><a href="#" class="text-muted text-decoration-none">Report a Problem</a></li>
+                            <li><a href="#" class="text-muted text-decoration-none">Suggest Edits</a></li>
+                            <li><a href="#" class="text-muted text-decoration-none">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+            crossorigin="anonymous"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
